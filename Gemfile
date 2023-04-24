@@ -5,6 +5,8 @@ ruby '3.2.2'
 
 gem 'rubocop', '>= 1.0', '< 2.0'
 
+  gem 'devise'
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.4', '>= 7.0.4.3'
 
@@ -60,7 +62,6 @@ group :development do
   gem "web-console"
   gem 'cancancan'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
-  gem 'devise'
   gem 'rails-controller-testing'
   gem 'rspec-rails'
 
