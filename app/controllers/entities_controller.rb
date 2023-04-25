@@ -1,9 +1,10 @@
 class EntitiesController < ApplicationController
   before_action :set_entity, only: %i[ show edit update destroy ]
+  load_and_authorize_resource
 
   # GET /entities or /entities.json
   def index
-    @entities = Entity.all
+    @entities = Entity.where(user_id: current_user.id)
   end
 
   # GET /entities/1 or /entities/1.json
@@ -13,6 +14,8 @@ class EntitiesController < ApplicationController
   # GET /entities/new
   def new
     @entity = Entity.new
+    @groups = Group.all
+    @purchases = Purchase.new
   end
 
   # GET /entities/1/edit
@@ -22,16 +25,17 @@ class EntitiesController < ApplicationController
   # POST /entities or /entities.json
   def create
     @entity = Entity.new(entity_params)
-
-    respond_to do |format|
-      if @entity.save
-        format.html { redirect_to entity_url(@entity), notice: "Entity was successfully created." }
-        format.json { render :show, status: :created, location: @entity }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @entity.errors, status: :unprocessable_entity }
-      end
+    @entity.author = current_user
+    @entity.user_id = current_user.id 
+    
+    if @entity.save
+      Purchase.create(group_id: entity_params[:group_id], entity_id: @entity.id)
+      flash[:notice] = 'Purchase created successfully'
+      redirect_to entities_path
+    else
+      render :new, status: :unprocessable_entity
     end
+
   end
 
   # PATCH/PUT /entities/1 or /entities/1.json
@@ -65,6 +69,6 @@ class EntitiesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def entity_params
-      params.require(:entity).permit(:author, :name, :amount, :user_id)
+      params.require(:entity).permit(:author, :name, :amount, :user_id, :group_id)
     end
 end
