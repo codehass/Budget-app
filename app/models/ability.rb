@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Ability
   include CanCan::Ability
 
@@ -10,7 +8,6 @@ class Ability
     # can :manage, Group, user_id: user.id
     # can :manage, Entity, user_id: user.id
     can :manage, :all
-
 
     # Define abilities for the user here. For example:
     #

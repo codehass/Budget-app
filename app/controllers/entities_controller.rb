@@ -9,8 +9,9 @@ class EntitiesController < ApplicationController
 
   def create
     @entity = Entity.new(
-      name: permitted[:name], user_id: permitted[:user_id], amount: permitted[:amount])
-      @entity.user_id = current_user.id
+      name: permitted[:name], user_id: permitted[:user_id], amount: permitted[:amount]
+    )
+    @entity.user_id = current_user.id
     if @entity.save
       @purchase = Purchase.create(group_id: permitted[:group_id], entity_id: @entity.id)
       flash[:notice] = 'Transaction created successfully'

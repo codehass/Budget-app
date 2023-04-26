@@ -28,7 +28,6 @@ class GroupsController < ApplicationController
     else
       redirect_to new_user_group_path(current_user)
     end
-    
   end
 
   # DELETE /groups/1 or /groups/1.json
@@ -39,8 +38,9 @@ class GroupsController < ApplicationController
   end
 
   private
-    # Only allow a list of trusted parameters through.
-    def group_params
+
+  # Only allow a list of trusted parameters through.
+  def group_params
     p = params.require(:group).permit(:name, :icon)
-    end
+  end
 end
