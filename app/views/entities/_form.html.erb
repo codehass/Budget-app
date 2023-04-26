@@ -21,6 +21,11 @@
     <%= form.number_field :amount %>
   </div>
 
+	<div >
+		<%= form.label :category %><br>
+		<%= form.select :group_id, @groups.collect { |group| [ group.name, group.id ]} %>
+	</div>
+
   <div>
     <%= form.submit %>
   </div>
