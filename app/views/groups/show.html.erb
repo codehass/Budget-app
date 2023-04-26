@@ -1,10 +1,22 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @group %>
-
+<header>
+  <span>&#8249;<span>
+	<%= link_to 'Back', groups_path %>
+</header>
 <div>
-  <%= link_to "Edit this group", edit_group_path(@group) %> |
-  <%= link_to "Back to groups", groups_path %>
-
-  <%= button_to "Destroy this group", @group, method: :delete %>
+  <div>
+		 <p><%= @group.name.capitalize %></p>
+		 <p>Total : $<%= @total %></p>
+  </div>	
+	<ul >
+		<% @purchases.each do |purchase| %>
+		<li class='category'>
+				<p><%= purchase.entity.name.capitalize %></p>
+				<p>$ <%= purchase.entity.amount %></p>
+				<p ><%= purchase.created_at.strftime('%d %b %Y')%></p>
+		</li>
+		<% end %>
+	</ul>	
+  <div >
+		<%= link_to 'Add a new transaction', new_entity_path %>
+  </div>
 </div>
