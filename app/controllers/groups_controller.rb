@@ -2,14 +2,15 @@ class GroupsController < ApplicationController
   load_and_authorize_resource
   # GET /groups or /groups.json
   def index
-    @groups = Group.where(user_id: current_user.id)
+    @groups = current_user.groups
   end
 
   # GET /groups/1 or /groups/1.json
   def show
-    @group = Group.find(params[:id])
-    @purchases = Purchase.where(['group_id = :id', { id: params[:id].to_s }]).order(created_at: :desc)
-    # @total = @category.purchases.sum { |item| item.entity.amount }
+    # @group = Group.find(params[:id])
+    @groups = Group.includes(:entities).where(user_id: current_user.id)
+    @purchases = Purchase.order(created_at: :desc)
+    @total = @group.purchases.sum { |item| item.entity.amount }
   end
 
   # GET /groups/new
@@ -26,7 +27,7 @@ class GroupsController < ApplicationController
       flash[:notice] = 'Category created successfully'
       redirect_to groups_path
     else
-      redirect_to groups_path(current_user)
+      redirect_to new_group_path(current_user)
     end
     
   end

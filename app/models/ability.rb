@@ -7,8 +7,9 @@ class Ability
     user ||= User.new # guest user (not logged in)
     return unless user.present?
 
-    can :manage, Group, user_id: user.id
-    can :manage, Entity, user_id: user.id
+    # can :manage, Group, user_id: user.id
+    # can :manage, Entity, user_id: user.id
+    can :manage, :all
 
 
     # Define abilities for the user here. For example:
