@@ -1,14 +1,15 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: %i[ show edit update destroy ]
   load_and_authorize_resource
   # GET /groups or /groups.json
   def index
-    @groups = Group.includes(:entities).where(user_id: current_user.id)
-    @groups = Group.order(created_at: :desc)
+    @groups = Group.where(user_id: current_user.id)
   end
 
   # GET /groups/1 or /groups/1.json
   def show
+    @group = Group.find(params[:id])
+    @purchases = Purchase.where(['group_id = :id', { id: params[:id].to_s }]).order(created_at: :desc)
+    # @total = @category.purchases.sum { |item| item.entity.amount }
   end
 
   # GET /groups/new
@@ -16,37 +17,18 @@ class GroupsController < ApplicationController
     @group = Group.new
   end
 
-  # GET /groups/1/edit
-  def edit
-  end
-
   # POST /groups or /groups.json
   def create
     @group = Group.new(group_params)
     @group.user_id = current_user.id
 
-    respond_to do |format|
-      if @group.save
-        format.html { redirect_to group_url(@group), notice: "Group was successfully created." }
-        format.json { render :show, status: :created, location: @group }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @group.errors, status: :unprocessable_entity }
-      end
+    if @group.save
+      flash[:notice] = 'Category created successfully'
+      redirect_to groups_path
+    else
+      redirect_to groups_path(current_user)
     end
-  end
-
-  # PATCH/PUT /groups/1 or /groups/1.json
-  def update
-    respond_to do |format|
-      if @group.update(group_params)
-        format.html { redirect_to group_url(@group), notice: "Group was successfully updated." }
-        format.json { render :show, status: :ok, location: @group }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @group.errors, status: :unprocessable_entity }
-      end
-    end
+    
   end
 
   # DELETE /groups/1 or /groups/1.json
@@ -60,11 +42,6 @@ class GroupsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_group
-      @group = Group.find(params[:id])
-    end
-
     # Only allow a list of trusted parameters through.
     def group_params
       params.require(:group).permit(:name, :icon)
