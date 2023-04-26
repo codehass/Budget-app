@@ -1,9 +1,22 @@
-<h1>New group</h1>
+<header>
+  <span>&#8249;<span>
+	<%= link_to 'Back', authenticated_root_path, class: 'back_btn'  %>
+</header>
+<div >
+	<h1 >Add a new category</h1>
 
-<%= render "form", group: @group %>
+	<%= form_with model: @group, method: :post, url: user_groups_path(current_user), scope: :group, class: 'form' do |f| %>
 
-<br>
-
-<div>
-  <%= link_to "Back to groups", groups_path %>
+		<div >
+			 <%= f.text_field :name,  placeholder: "Category Name", class: 'field' %>
+		</div>
+	
+		<div >
+			 <%= f.text_field :icon,  placeholder: 'Icon URL', class: 'field' %>
+		</div>
+			
+		<div>
+			<%= f.submit "Save" %>
+		</div>
+	<% end %>
 </div>

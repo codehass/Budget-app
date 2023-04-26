@@ -1,14 +1,18 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Groups</h1>
-
-<div id="groups">
-  <% @groups.each do |group| %>
-    <%= render group %>
-    <p>
-      <%= link_to "Show this group", group_path(group) %>
-    </p>
-  <% end %>
+<div>
+	<h1 >Categories</h1>	
+	<ul >
+		<% @groups.each do |category| %>
+		 <li >
+			 <%# <%= image_tag category.icon, alt: 'icon'%> 
+			 <div>
+				 <%= link_to category.name.capitalize, user_group_path(current_user, category)%>
+				 <p><span> $</span><%= category.purchases.sum { |item| item.entity.amount } %></p>
+			 </div>
+			 <%= button_to 'Delete', user_group_path(current_user, category), method: :delete %>
+		 </li>
+		<% end %>
+	</ul>
+	<div >
+		<%= link_to 'Add a new category', new_user_group_path(current_user) %>
+	</div>
 </div>
-
-<%= link_to "New group", new_group_path %>

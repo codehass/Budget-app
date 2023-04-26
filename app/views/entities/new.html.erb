@@ -1,9 +1,31 @@
-<h1>New entity</h1>
-
-<%= render "form", entity: @entity %>
-
-<br>
-
-<div>
-  <%= link_to "Back to entities", entities_path %>
+<header>
+  <span>&#8249;<span>
+	<%= link_to 'Back', authenticated_root_path  %>
+</header>
+<div >
+	<h1 >Add a new transaction</h1>
+	<%= form_with model: @entity, method: :post, url: entities_path, scope: :entity, class: 'form' do |f| %>
+	
+		<%= f.hidden_field :author_id, value: current_user.id %>
+	
+		<div >
+			 <%= f.text_field :name,placeholder: 'Transaction Name', class: 'field' %>
+		</div>
+	
+		<div >
+		  <%= f.label :amount, class: 'label' %>
+			 <%= f.number_field :amount, class: 'field' %>
+		</div>
+	
+	  <div >
+			<%= f.fields_for @purchases do |g| %>
+				<%= f.label :category, class: 'label' %><br>
+				<%= f.select :group_id, @groups.collect { |category| [ category.name, category.id ]} %>
+			<% end %>
+	  </div>
+			
+		<div>
+			<%= f.submit "Save" %>
+		</div>
+	<% end %>
 </div>
