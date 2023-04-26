@@ -7,9 +7,8 @@ class GroupsController < ApplicationController
 
   # GET /groups/1 or /groups/1.json
   def show
-    # @group = Group.find(params[:id])
-    @groups = Group.includes(:entities).where(user_id: current_user.id)
-    @purchases = Purchase.order(created_at: :desc)
+    @group = Group.find(params[:id])
+    @purchases = Purchase.where(['group_id = :id', { id: params[:id].to_s }]).order(created_at: :desc)
     @total = @group.purchases.sum { |item| item.entity.amount }
   end
 
@@ -25,26 +24,23 @@ class GroupsController < ApplicationController
 
     if @group.save
       flash[:notice] = 'Category created successfully'
-      redirect_to groups_path
+      redirect_to authenticated_root_path
     else
-      redirect_to new_group_path(current_user)
+      redirect_to new_user_group_path(current_user)
     end
     
   end
 
   # DELETE /groups/1 or /groups/1.json
   def destroy
+    @group = Group.find(params[:id])
     @group.destroy
-
-    respond_to do |format|
-      format.html { redirect_to groups_url, notice: "Group was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to authenticated_root_path
   end
 
   private
     # Only allow a list of trusted parameters through.
     def group_params
-      params.require(:group).permit(:name, :icon)
+    p = params.require(:group).permit(:name, :icon)
     end
 end
