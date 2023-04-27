@@ -7,7 +7,7 @@
 	<ul  >
 		<% @groups.each do |category| %>
 		 <li class="category" >
-			  <%= image_tag "https://wymararesortandvillas.com/wp-content/uploads/2018/02/Stelle-FoodImg-1.jpg", height: 50 , alt: 'icon'%> 
+			  <%= image_tag category.icon, height: 50 , alt: 'icon'%> 
 			 <div class="category-info">
 				 <%= link_to category.name.capitalize, user_group_path(current_user, category)%>
 				 <p><span> $</span><%= category.purchases.sum { |item| item.entity.amount } %></p>

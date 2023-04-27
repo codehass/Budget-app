@@ -140,3 +140,60 @@ ul {
   padding-left: 10px;
   font-size: 16px;
 }
+
+.actions {
+  text-align: center;
+}
+
+.login .field {
+  display: flex;
+  margin: 0 auto 20px auto;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login input[type='email'],
+.login input[type='password'] {
+  height: 50px;
+  padding-left: 10px;
+  font-size: 16px;
+  margin-top: 8px;
+  border-radius: 5px;
+}
+
+.check-box {
+  display: flex;
+  justify-content: center;
+}
+
+.notice {
+  text-align: center;
+  color: #fff;
+  background: green;
+  width: 400px;
+  margin: auto;
+  z-index: 1;
+}
+
+.alert {
+  text-align: center;
+  color: #fff;
+  background: red;
+  width: 400px;
+  margin: auto;
+  z-index: 1;
+}
+
+.sign-up .field input,
+.login .field input {
+  height: 35px;
+  width: 80%;
+  font-size: 16px;
+  padding-left: 10px;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.password-field {
+  margin-bottom: 20px;
+}
