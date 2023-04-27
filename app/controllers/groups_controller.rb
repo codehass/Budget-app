@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
   before_action :authenticate_user!
-    # GET /groups or /groups.json
+  # GET /groups or /groups.json
   def index
     @groups = current_user.groups
   end
@@ -41,6 +41,6 @@ class GroupsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def group_params
-    p = params.require(:group).permit(:name, :icon)
+    params.require(:group).permit(:name, :icon)
   end
 end

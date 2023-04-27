@@ -1,2 +1,3 @@
 module GroupsHelper
+  # GroupsHelper
 end
