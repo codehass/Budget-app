@@ -15,17 +15,7 @@
       <p class="notice"><%= notice %></p>
        <p class="alert"><%= alert %></p>
     </div>
-    <nav class="usersCards">
-      <ul >
-        <% if current_user %>
-          <li> <%= link_to "Edit Account", edit_user_registration_path, class: "nav-link" %></li>
-          <li > <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-small btn-primary mx-2" %></li>
-        <% else %>
-          <li > <%= link_to "Sign Up", new_user_registration_path, class: "nav-link"  %></li>
-          <li > <%= link_to "Sign In", new_user_session_path, class: "nav-link"  %></li>
-        <% end %>
-      </ul>
-    </nav>
+
     <%= yield %>
   </body>
 </html>

@@ -1,22 +1,25 @@
-<header>
+<header class="navbar">
   <span>&#8249;<span>
-	<%= link_to 'Back', authenticated_root_path %>
+	<%= link_to 'Back', authenticated_root_path, class: "back-btn"  %>
 </header>
-<div>
-  <div>
-		 <p><%= @group.name.capitalize %></p>
-		 <p>Total : $<%= @total %></p>
-  </div>	
-	<ul >
-		<% @purchases.each do |purchase| %>
-		<li class='category'>
-				<p><%= purchase.entity.name.capitalize %></p>
-				<p>$ <%= purchase.entity.amount %></p>
-				<p ><%= purchase.created_at.strftime('%d %b %Y')%></p>
-		</li>
-		<% end %>
-	</ul>	
-  <div >
+<div class="entities">
+	<div>
+		<div class="entity-info">
+			<p><%= @group.name.capitalize %></p>
+			<p>Total : $<%= @total %></p>
+  	</div>	
+		<ul >
+			<% @purchases.each do |purchase| %>
+			<li class='category'>
+					<p><%= purchase.entity.name.capitalize %></p>
+					<p>$ <%= purchase.entity.amount %></p>
+					<p ><%= purchase.created_at.strftime('%d %b %Y')%></p>
+			</li>
+			<% end %>
+		</ul>	
+	</div>
+  <div class="new-transaction" >
 		<%= link_to 'Add a new transaction', new_entity_path %>
   </div>
 </div>
+

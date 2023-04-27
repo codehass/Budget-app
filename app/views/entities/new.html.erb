@@ -1,31 +1,31 @@
-<header>
+<header class="navbar">
   <span>&#8249;<span>
 	<%= link_to 'Back', authenticated_root_path  %>
+	<h2 >Add a new transaction</h2>
 </header>
 <div >
-	<h1 >Add a new transaction</h1>
 	<%= form_with model: @entity, method: :post, url: entities_path, scope: :entity, class: 'form' do |f| %>
 	
 		<%= f.hidden_field :author_id, value: current_user.id %>
 	
-		<div >
+		<div class="field" >
 			 <%= f.text_field :name,placeholder: 'Transaction Name', class: 'field' %>
 		</div>
 	
-		<div >
+		<div class="field">
 		  <%= f.label :amount, class: 'label' %>
 			 <%= f.number_field :amount, class: 'field' %>
 		</div>
 	
-	  <div >
+	  <div class="filed-select">
 			<%= f.fields_for @purchases do |g| %>
-				<%= f.label :category, class: 'label' %><br>
+				<%= f.label :category%><br>
 				<%= f.select :group_id, @groups.collect { |category| [ category.name, category.id ]} %>
 			<% end %>
 	  </div>
 			
 		<div>
-			<%= f.submit "Save" %>
+			<%= f.submit "Save", class: "save-btn" %>
 		</div>
 	<% end %>
 </div>

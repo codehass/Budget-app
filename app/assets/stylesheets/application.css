@@ -1,15 +1,142 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+/* categories page */
+.navbar {
+  width: 400px;
+  margin: auto;
+  background: #5c5ced;
+  height: 60px;
+}
+
+.navbar h2 {
+  text-align: center;
+  color: #fff;
+}
+
+.sign-out-btn,
+.back-btn {
+  color: #fff;
+  background: #5c5ced;
+  padding: 5px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.categories,
+.entities {
+  width: 400px;
+  height: 80vh;
+  margin: auto;
+  background-color: #ccc;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.category {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #fff;
+  margin: 10px;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.category-info {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.delete-btn {
+  color: #fff;
+  background: red;
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.new-category,
+.new-transaction {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  margin-bottom: 5px;
+}
+
+.new-category a,
+.new-transaction a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  background-color: green;
+  padding: 15px 30px;
+  border-radius: 5px;
+}
+
+.entity-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #fff;
+  padding: 15px;
+}
+
+.form {
+  background: #ccc;
+  width: 400px;
+  margin: auto;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.field {
+  height: 50px;
+  margin: 0 0 20px auto;
+  width: 90%;
+  border-radius: 5px;
+  border-color: #fff;
+  padding-left: 10px;
+  font-size: 16px;
+}
+
+.save-btn {
+  padding: 10px 20px;
+  background: green;
+  color: #fff;
+  border: none;
+  font-size: 17px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.filed-select {
+  width: 80%;
+  margin: 20px auto;
+}
+
+.filed-select select {
+  height: 50px;
+  width: 105%;
+  border-radius: 5px;
+  border-color: #fff;
+  padding-left: 10px;
+  font-size: 16px;
+}

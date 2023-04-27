@@ -1,22 +1,21 @@
-<header>
+<header class="navbar">
   <span>&#8249;<span>
-	<%= link_to 'Back', authenticated_root_path, class: 'back_btn'  %>
+	<%= link_to 'Back', authenticated_root_path, class: 'back-btn'  %>
+	<h2 >Add a new category</h2>
 </header>
 <div >
-	<h1 >Add a new category</h1>
-
 	<%= form_with model: @group, method: :post, url: user_groups_path(current_user), scope: :group, class: 'form' do |f| %>
 
-		<div >
+		<div class="field">
 			 <%= f.text_field :name,  placeholder: "Category Name", class: 'field' %>
 		</div>
 	
-		<div >
-			 <%= f.text_field :icon,  placeholder: 'Icon URL', class: 'field' %>
+		<div class="field">
+			 <%= f.url_field :icon,  placeholder: 'Icon URL', class: 'field' %>
 		</div>
 			
-		<div>
-			<%= f.submit "Save" %>
+		<div >
+			<%= f.submit "Save", class: "save-btn"%>
 		</div>
 	<% end %>
 </div>
