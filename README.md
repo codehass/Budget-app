@@ -30,6 +30,10 @@ Budget application is a mobile web application where you can manage your budget.
 
 > [Live demo](https://budget-app-d5fr.onrender.com/)
 
+## Video demo
+
+> [Video demo](https://www.loom.com/share/a1edf4b5f2ea413789bb2138369d0025)
+
 ## 🛠 Built With <a name="built-with"></a>
 
 > <li><a href="https://www.ruby-lang.org/en/">Ruby</a></li>
