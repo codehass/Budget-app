@@ -154,7 +154,8 @@ If you like this project, please leave a ⭐️
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank Microverse for providing us with reading materials that aided us to during the project development
+- I would like to thank Microverse for providing us with reading materials that aided us to during the project development
+- Credit to the original designer by [Gregoire Vella on Behance](https://www.behance.net/gregoirevella)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
