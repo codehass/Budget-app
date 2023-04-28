@@ -33,7 +33,7 @@ ul {
 .categories,
 .entities {
   width: 400px;
-  height: 80vh;
+  height: 93vh;
   margin: auto;
   background-color: #ccc;
   display: flex;
@@ -99,7 +99,7 @@ ul {
   background: #ccc;
   width: 400px;
   margin: auto;
-  height: 80vh;
+  height: 93vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
