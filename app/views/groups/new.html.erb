@@ -1,0 +1,15 @@
+<header class="navbar">
+	<%= link_to '< Back', authenticated_root_path, class: 'back-btn'  %>
+	<h2 >Add a new category</h2>
+</header>
+<div >
+	<%= form_with model: @group, method: :post, url: user_groups_path(current_user), scope: :group, class: 'form',class: "form-new-category" do |f| %>
+		<div>
+			<%= f.text_field :name,  placeholder: "Category Name", class: 'field' %>
+			<%= f.url_field :icon,  placeholder: 'Icon URL', class: 'field' %>
+		</div>
+		<div class="new-category">
+			<%= f.submit "Save", class: "save-btn"%>
+		</div>
+	<% end %>
+</div>

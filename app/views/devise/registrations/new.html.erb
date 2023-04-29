@@ -1,0 +1,15 @@
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+  <header class= 'login-header'>
+    <%= link_to '< Back', authenticated_root_path  %>
+    <h2>REGISTER</h2>
+    <%= f.submit "Sign up", class: "save-btn"%>
+  </header>
+  <%= render "devise/shared/error_messages", resource: resource %>
+  <di class= 'form login'>
+    <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "Full name",class:"field"%>  
+    <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "Email",class:"field" %>
+    <%= f.password_field :password, autocomplete: "new-password",placeholder: "Password",class:"field" %>
+  </div>
+  <% end %>
+

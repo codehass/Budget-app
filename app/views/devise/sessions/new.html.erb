@@ -1,0 +1,15 @@
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <header class= 'login-header'>
+    <%= link_to '< Back', unauthenticated_root_path  %>
+    <h2>Log in</h2>
+    <%= f.submit "Log in", class: "save-btn" %>
+  </header>
+    
+  <div class= 'form login'>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email",class: "field" %>
+    <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password",class: "field password"  %>
+    <%= link_to "Forget password?", new_user_password_path, class: 'forget-password' %>
+  </div>
+
+<% end %>

@@ -1,0 +1,392 @@
+@import url('https://fonts.cdnfonts.com/css/proxima-nova-2');
+@import 'font-awesome';
+
+* {
+  margin: 0;
+  padding: 0;
+  color: #434b54;
+}
+
+body {
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  font-family: 'Proxima Nova', Arial, sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+/* categories page */
+.navbar {
+  width: 400px;
+  margin: auto;
+  background: #3778c2;
+  height: 12vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 108px;
+}
+
+.navbar h2 {
+  text-align: center;
+  color: #fff;
+  padding-right: 7px;
+}
+
+.login-header input {
+  color: #fff;
+  border: none;
+  background: #3778c2;
+  padding-right: 15px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.sign-out-btn {
+  font-size: 16px;
+}
+
+.sign-out-btn,
+.back-btn {
+  color: #fff;
+  padding-left: 15px;
+  text-decoration: none;
+  font-size: 18px;
+  background: #3778c2;
+  border: none;
+  cursor: pointer;
+}
+
+.categories,
+.entities {
+  width: 400px;
+  height: 88vh;
+  margin: auto;
+  background-color: #f5f3f6ba;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.category {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  margin: 10px;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.category-info {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.delete-btn {
+  color: #fff;
+  background: red;
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.new-category,
+.new-transaction {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  margin-bottom: 2px;
+  background-color: #5fb523;
+  padding: 10px;
+}
+
+.new-category a,
+.new-transaction a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  background-color: #5fb523;
+  padding: 15px 30px;
+  border-radius: 5px;
+  border: 1px solid #fff;
+}
+
+.entity-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #fff;
+  padding: 15px;
+}
+
+.new_user,
+.form {
+  background: #f5f3f6ba;
+  width: 400px;
+  margin: auto;
+  height: 93vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.field {
+  height: 60px;
+  font-size: 18px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.form-new-category {
+  background: #f5f3f6ba;
+  width: 400px;
+  margin: auto;
+  height: 88vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.form-new-category input[type='text'] {
+  margin-top: 30px;
+  border-top: 1px solid #ccc;
+}
+
+.form-new-category input[type='url'] {
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+.btn-transaction input,
+.form-new-category .save-btn {
+  color: #fff;
+  font-size: 18px;
+  background-color: #5fb523;
+  padding: 18px 107px;
+  border-radius: 5px;
+  border: 1px solid #fff;
+  cursor: pointer;
+}
+
+.filed-select select {
+  height: 50px;
+  width: 100%;
+  border-color: #fff;
+  padding-left: 10px;
+  font-size: 16px;
+}
+
+.actions {
+  text-align: center;
+}
+
+.login {
+  margin-top: 35px;
+}
+
+.login input[type='email'],
+.login input[type='password'] {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-top: 1px solid #ccc;
+}
+
+.login input[type='text'] {
+  border: none;
+  border-top: 1px solid #ccc;
+  width: 100%;
+}
+
+.login input[type='password'] {
+  border-bottom: 1px solid #ccc;
+}
+
+.transaction input[type='text'] {
+  margin-top: 30px;
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+}
+
+.filed-select {
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  width: 100%;
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+::placeholder {
+  padding: 15px;
+}
+
+.check-box {
+  display: flex;
+  justify-content: center;
+}
+
+.notice {
+  text-align: center;
+  color: #fff;
+  background: #5fb523;
+  width: 400px;
+  margin: auto;
+  z-index: 1;
+}
+
+.alert {
+  text-align: center;
+  color: #fff;
+  background: red;
+  width: 400px;
+  margin: auto;
+  z-index: 1;
+}
+
+.sign-up .field input {
+  height: 35px;
+  width: 80%;
+  font-size: 16px;
+  padding-left: 10px;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+.password-field {
+  margin-bottom: 20px;
+}
+
+.splash {
+  width: 400px;
+  height: 100vh;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding-top: 10px;
+  background: #f5f3f6ba;
+}
+
+.singup-login {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  text-align: center;
+}
+
+.login-btn {
+  background-color: #3778c2;
+  color: #fff;
+}
+
+.splash-btn {
+  height: 50px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.form-login {
+  background: #ccc;
+  width: 400px;
+  margin: auto;
+  height: 93vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.login-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10vh;
+  width: 400px;
+  margin: auto;
+  background-color: #3778c2;
+}
+
+.login-header a {
+  color: #fff;
+  padding-left: 15px;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.login-header h2 {
+  color: #fff;
+}
+
+.field .password {
+  border-bottom: 1px solid #ccc;
+}
+
+.forget-password {
+  text-align: center;
+  margin-top: 60px;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.navbar-transaction {
+  justify-content: start;
+}
+
+.btn-transaction {
+  width: 400px;
+  background-color: #5fb523;
+  text-align: center;
+  padding: 10px 0;
+  position: absolute;
+  bottom: 0;
+}
+
+#error_explanation {
+  width: 400px;
+  margin: auto;
+}
+
+.new_user .filed {
+  margin-top: 30px;
+  height: 60px;
+  border-left: none;
+  border-right: none;
+  font-size: 18px;
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+}
+
+.new_user .actions {
+  margin-top: 20px;
+  background-color: #5fb523;
+  padding: 15px 0;
+}
+
+.new_user .actions input {
+  background: #5fb523;
+  border: 1px solid #fff;
+  padding: 15px 20px;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.forgetpass {
+  margin-top: 60px;
+  margin-left: 20px;
+}
