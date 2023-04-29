@@ -25,7 +25,7 @@ RSpec.describe 'My Budget app', type: :feature do
     end
 
     it 'Should have heading' do
-      expect(page).to have_content 'Add a new transaction'
+      expect(page).to have_content 'New transaction'
     end
 
     it 'Should have fields' do
@@ -45,7 +45,7 @@ RSpec.describe 'My Budget app', type: :feature do
 
     it 'Should redirect to selected category after filling field' do
       fill_in 'Transaction Name', with: 'shirt'
-      fill_in 'Amount', with: '12'
+      fill_in 'amount', with: '12'
       select('Clothing')
       click_button 'Save'
       expect(page).to have_content 'Transaction created successfully'

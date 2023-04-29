@@ -18,10 +18,9 @@ RSpec.feature 'Signup', type: :feature do
 
   it 'click the login error' do
     visit new_user_registration_path
-    fill_in 'Name', with: 'Hello'
+    fill_in 'Full name', with: 'Hello'
     fill_in 'Email', with: 'ali@example.com'
     fill_in 'Password', with: 'password'
-    fill_in 'Password confirmation', with: 'password'
     click_button 'Sign up'
     expect(page).to have_content 'Welcome!'
   end

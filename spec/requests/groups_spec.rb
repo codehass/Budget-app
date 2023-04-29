@@ -15,7 +15,7 @@ RSpec.describe 'Categories', type: :request do
       get '/'
     end
     it 'Test If the correct template was rendered' do
-      expect(response).to render_template(:index)
+      expect(response).to render_template(:home)
     end
     it 'Test If response status was correct' do
       expect(response).to have_http_status(:ok)

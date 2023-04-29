@@ -1,7 +1,7 @@
 class GroupsController < ApplicationController
   before_action :authenticate_user!
   # GET /groups or /groups.json
-  def index
+  def home
     @groups = current_user.groups
   end
 

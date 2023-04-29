@@ -1,31 +1,21 @@
 <header class="navbar">
-  <span>&#8249;<span>
-	<%= link_to 'Back', authenticated_root_path  %>
-	<h2 >Add a new transaction</h2>
+	<%= link_to '< Back', authenticated_root_path, class: 'back-btn'  %>
+	<h2 >New transaction</h2>
 </header>
-<div >
-	<%= form_with model: @entity, method: :post, url: entities_path, scope: :entity, class: 'form' do |f| %>
-	
-		<%= f.hidden_field :author_id, value: current_user.id %>
-	
-		<div class="field" >
-			 <%= f.text_field :name,placeholder: 'Transaction Name', class: 'field' %>
+<%= form_with model: @entity, method: :post, url: entities_path, scope: :entity, class: 'form transaction' do |f| %>
+	<div class="form-transaction">
+			<%= f.hidden_field :author_id, value: current_user.id %>
+			<%= f.text_field :name,placeholder: 'Transaction Name', class: 'field' %>
+			<%= f.number_field :amount, class: 'field',placeholder: "amount" %>
+			<div class="filed-select">
+				<%= f.fields_for @purchases do |g| %>
+					<%= f.select :group_id, @groups.collect { |category| [ category.name, category.id ]},placeholder: "category" %>
+				<% end %>
+			</div>
+		
+		<div class="btn-transaction">
+			<%= f.submit "Save", class: "save-btn " %>
 		</div>
-	
-		<div class="field">
-		  <%= f.label :amount, class: 'label' %>
-			 <%= f.number_field :amount, class: 'field' %>
-		</div>
-	
-	  <div class="filed-select">
-			<%= f.fields_for @purchases do |g| %>
-				<%= f.label :category%><br>
-				<%= f.select :group_id, @groups.collect { |category| [ category.name, category.id ]} %>
-			<% end %>
-	  </div>
-			
-		<div>
-			<%= f.submit "Save", class: "save-btn" %>
-		</div>
-	<% end %>
-</div>
+
+	</div>
+<% end %>
